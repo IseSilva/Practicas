@@ -1,0 +1,31 @@
+import time
+import os
+
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def print_semaphore(color):
+    clear_console()
+    lights = {
+        "red": "🔴",
+        "yellow": "🟡",
+        "green": "🟢",
+        "off": "⚫"
+    }
+
+    print("   _______   ")
+    print("  |       |  ")
+    print("  |  {}  |  ".format(lights['red'] if color == "red" else lights['off']))
+    print("  |  {}  |  ".format(lights['yellow'] if color == "yellow" else lights['off']))
+    print("  |  {}  |  ".format(lights['green'] if color == "green" else lights['off']))
+    print("  |_______|  ")
+
+def semaphore_simulation():
+    colors = ["red", "yellow", "green"]
+    while True:
+        for color in colors:
+            print_semaphore(color)
+            time.sleep(1)  # Cambia el tiempo según el intervalo que desees
+
+if __name__ == "__main__":
+    semaphore_simulation()
